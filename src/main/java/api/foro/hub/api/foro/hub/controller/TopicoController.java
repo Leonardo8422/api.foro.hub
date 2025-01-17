@@ -33,7 +33,7 @@ public class TopicoController {
     }
 
     @GetMapping
-    public Page<DatosListarTopicos> listadoTopicos(@PageableDefault(size = 3) Pageable paginacion) {
+    public Page<DatosListarTopicos> listadoTopicos(@PageableDefault(size = 9, sort = "fecha") Pageable paginacion) {
         return topicoRepository.findAll(paginacion).map(DatosListarTopicos::new);
         //return ResponseEntity.ok(topicoRepository.findByTituloTrue(paginacion).map(DatosListarTopicos::new));
     }
