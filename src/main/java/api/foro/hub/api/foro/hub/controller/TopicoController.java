@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -39,7 +40,8 @@ public class TopicoController {
     }
 
     @PutMapping
-    public void actualizarTopico(DatosActualizarTopico datosActualizarTopico){
+    @Transactional
+    public void actualizarTopico(@RequestBody @Valid DatosActualizarTopico datosActualizarTopico){
         Topico topico = topicoRepository.getReferenceById(datosActualizarTopico.id());
         topico.actualizarDatos(datosActualizarTopico);
 
