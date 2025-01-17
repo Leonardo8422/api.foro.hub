@@ -68,5 +68,15 @@ public class Topico {
     }
 
 
-
+    public void actualizarDatos(DatosActualizarTopico datosActualizarTopico) {
+        if (datosActualizarTopico.mensaje() != null){
+            this.mensaje = datosActualizarTopico.mensaje();
+        }
+        if (datosActualizarTopico.estado_topico() != null){
+            this.estado_topico = datosActualizarTopico.estado_topico();
+        }
+        if (datosActualizarTopico.autor() != null) {
+            this.autor = datosActualizarTopico.autor();
+        }
+    }
 }

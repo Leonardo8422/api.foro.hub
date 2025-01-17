@@ -38,5 +38,13 @@ public class TopicoController {
         //return ResponseEntity.ok(topicoRepository.findByTituloTrue(paginacion).map(DatosListarTopicos::new));
     }
 
+    @PutMapping
+    public void actualizarTopico(DatosActualizarTopico datosActualizarTopico){
+        Topico topico = topicoRepository.getReferenceById(datosActualizarTopico.id());
+        topico.actualizarDatos(datosActualizarTopico);
+
+
+    }
+
 
 }
